@@ -11,11 +11,11 @@ public class Rating {
     @Id
     @GeneratedValue
     @Column(nullable = false)
-    int id;
+    public int id;
 
     @ManyToOne
     public Consumable consumable;
 
     @Column(nullable = false)
-    int value;
+    public int value;
 }
