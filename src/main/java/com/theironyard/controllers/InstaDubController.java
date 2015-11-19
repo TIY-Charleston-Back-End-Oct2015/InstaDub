@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -26,7 +27,7 @@ public class InstaDubController {
     }
 
     @RequestMapping("/add-beer")
-    public void addBeer(String name, String description, String vendor, MultipartFile image) throws IOException {
+    public void addBeer(HttpServletResponse response, String name, String description, String vendor, MultipartFile image) throws IOException {
         File f = File.createTempFile("image", image.getOriginalFilename(), new File("public"));
         FileOutputStream fos = new FileOutputStream(f);
         fos.write(image.getBytes());
@@ -37,5 +38,7 @@ public class InstaDubController {
         consumable.vendor = vendor;
         consumable.imageLocation = f.getName();
         consumables.save(consumable);
+
+        response.sendRedirect("/");
     }
 }
