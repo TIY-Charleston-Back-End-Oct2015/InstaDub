@@ -3,14 +3,27 @@
   <head>
     <meta charset="utf-8">
     <title>InstaDub</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
-    <form action="add-beer" enctype="multipart/form-data" method="post">
-        <input type="text" placeholder="Name" name="name"/>
-        <input type="text" placeholder="Description" name="description"/>
-        <input type="text" placeholder="Vendor" name="vendor"/>
-        <input type="file" name="image"/>
-        <button type="submit">Upload</button>
-    </form>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="page">
+<!-- this is where the alcohol is rendered -->
+          </div>
+        </div>
+        <div class="col-md-4">
+          <form action="add-beer" enctype="multipart/form-data" method="post">
+              <input type="text" placeholder="Name" name="name"/>
+              <input type="text" placeholder="Description" name="description"/>
+              <input type="text" placeholder="Vendor" name="vendor"/>
+              <input type="file" name="image"/>
+              <button type="submit">Upload</button>
+          </form>
+        </div>
+      </div>
+    </div>
+<script src="bundle.js" charset="utf-8"></script>
   </body>
 </html>
